@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View , StyleSheet, Text, Button, TextInput, TouchableOpacity} from 'react-native';
-
+let foodName, foodAmount, calorieCount;
 const addBtnHandler = () => {
         
 }
@@ -8,13 +8,33 @@ const addBtnHandler = () => {
 const Header = () => {
   return (
     <View style={styles.header}>
-      <Text style={styles.text}>Test Text</Text>
+      <Text style={styles.text}>
+          input the food name, it's amount and approximated calories for it.
+      </Text>
       <TouchableOpacity
        onPress={addBtnHandler()}
        style={styles.addBtn}
       >
         <Text style={styles.btnText}>Add</Text>
       </TouchableOpacity>
+      <View style={styles.inputRow}>
+        <TextInput 
+        style={styles.textInput}
+        value={foodName}
+        placeholder= 'food...'
+        ></TextInput>
+        <TextInput 
+        style={styles.textInput}
+        value={foodAmount}
+        placeholder= 'amount...'
+        ></TextInput>
+        <TextInput 
+        style={styles.textInput}
+        value={calorieCount}
+        placeholder= 'calories...'
+        ></TextInput>
+      </View>
+      
     </View>
   )
 }
@@ -29,25 +49,50 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: 'lightgreen',
         flexDirection: 'row',
-        padding: 5,
+        padding: 10,
+        width: '90%',
+        flexWrap: 1,
+        justifyContent: 'space-evenly'
+        
     },
     text: {
-        color: 'green',
-        fontSize:20,
+        color: 'white',
+        fontSize: 12,
         borderStyle: 'solid',
         borderWidth: 2,
         borderColor: 'grey',
         width: 200,
         height: 50,
+        textAlign: 'center',
     },
     addBtn: {
         backgroundColor: 'green',
         height: 40,
         width: 120,
         borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     btnText: {
         color: 'white',
         textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+    textInput: {
+        borderStyle: 'solid',
+        borderWidth: 2,
+        borderColor: 'grey',
+        height: 40,
+        width: 100,
+        backgroundColor: 'white',
+        textAlign: 'center',
+    },
+    inputRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        width: '100%',
+        paddingTop: 10,
+        borderRadius: 10,
     }
 });
