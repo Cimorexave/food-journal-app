@@ -2,13 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import Header from './components/Header';
+
 export default function App() {
   return (
     <View style={styles.body}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.text}>Test Text</Text>
-        </View>
+        <Header></Header>
       </View>
     </View>
   );
@@ -31,18 +31,5 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'grey',
   },
-  header: {
-    flex: 1,
-    marginTop: 20,
-    borderStyle: 'solid',
-    borderWidth: 2,
-    borderColor: 'grey',
-  },
-  text: {
-    color: 'green',
-    fontSize:20,
-    borderStyle: 'solid',
-    borderWidth: 2,
-    borderColor: 'grey',
-  }
+  
 });
