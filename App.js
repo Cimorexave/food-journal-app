@@ -8,6 +8,8 @@ import ResultBox from './components/ResultBox';
 var data_from_child = {}
 const pullData_function = (data) => {
   data_from_child = data
+  console.log('pulled data from child')
+  console.log('pulled data is: ' , data_from_child)
 }
 
 export default function App() {

@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {View , StyleSheet, Text, Button, TextInput, TouchableOpacity} from 'react-native';
 
-
 const Header = (arg) => {
-  const [foodName, setFoodName] = useState([])
-  const [foodAmount, setFoodAmount] = useState([])
-  const [calorieCount, setCalorieCount] = useState([])
+  const [foodName, setFoodName] = useState("")
+  const [foodAmount, setFoodAmount] = useState("")
+  const [calorieCount, setCalorieCount] = useState("")
   const [food, setFood] = useState({})
 
   //arg.pullData_funciton({foodName , foodAmount, calorieCount})
@@ -16,7 +15,11 @@ const Header = (arg) => {
       </Text>
       <TouchableOpacity
        onPress={() => {
+         
          setFood({foodName, foodAmount, calorieCount})
+         console.log('submitted add button ***')
+         console.log('food is:' , food)
+         arg.pullData_function(food)
        }}
        style={styles.addBtn}
       >
@@ -25,25 +28,28 @@ const Header = (arg) => {
       <View style={styles.inputRow}>
         <TextInput
         style={styles.textInput}
-        onSubmitEditing = {(newFoodName) => {
-          setFoodName(newFoodName)
-        }}
+        clearTextOnFocus = {true}
+        onChangeText = {setFoodName}
+        value = {foodName}
         placeholder= 'food...'
         ></TextInput>
         <TextInput 
         style={styles.textInput}
-        onSubmitEditing = {(newFoodAmount) => {
-          setFoodAmount(newFoodAmount)
-        }}
+        clearTextOnFocus = {true}
+        onChangeText = {setFoodAmount}
+        value = {foodAmount}
         placeholder= 'amount...'
         ></TextInput>
         <TextInput 
         style={styles.textInput}
-        onSubmitEditing = {(newCalorieCount) => {
-          setCalorieCount(newCalorieCount)
-        }}
+        clearTextOnFocus = {true}
+        onChangeText = {setCalorieCount}
+        value = {calorieCount}
         placeholder= 'calories...'
         ></TextInput>
+      </View>
+      <View style= {styles.devControl}>
+
       </View>
       
     </View>
