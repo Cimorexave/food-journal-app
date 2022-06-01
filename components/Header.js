@@ -3,11 +3,12 @@ import {View , StyleSheet, Text, Button, TextInput, TouchableOpacity} from 'reac
 
 
 const Header = (arg) => {
-  const [foodName, setFoodName] = useState("")
-  const [foodAmount, setFoodAmount] = useState("")
-  const [calorieCount, setCalorieCount] = useState("")
+  const [foodName, setFoodName] = useState([])
+  const [foodAmount, setFoodAmount] = useState([])
+  const [calorieCount, setCalorieCount] = useState([])
+  const [food, setFood] = useState({})
 
-  arg.pullData_funciton({foodName , foodAmount, calorieCount})
+  //arg.pullData_funciton({foodName , foodAmount, calorieCount})
   return (
     <View style={styles.header}>
       <Text style={styles.text}>
@@ -15,7 +16,7 @@ const Header = (arg) => {
       </Text>
       <TouchableOpacity
        onPress={() => {
-         
+         setFood({foodName, foodAmount, calorieCount})
        }}
        style={styles.addBtn}
       >
@@ -24,17 +25,23 @@ const Header = (arg) => {
       <View style={styles.inputRow}>
         <TextInput
         style={styles.textInput}
-        value={foodName}
+        onSubmitEditing = {(newFoodName) => {
+          setFoodName(newFoodName)
+        }}
         placeholder= 'food...'
         ></TextInput>
         <TextInput 
         style={styles.textInput}
-        value={foodAmount}
+        onSubmitEditing = {(newFoodAmount) => {
+          setFoodAmount(newFoodAmount)
+        }}
         placeholder= 'amount...'
         ></TextInput>
         <TextInput 
         style={styles.textInput}
-        value={calorieCount}
+        onSubmitEditing = {(newCalorieCount) => {
+          setCalorieCount(newCalorieCount)
+        }}
         placeholder= 'calories...'
         ></TextInput>
       </View>
