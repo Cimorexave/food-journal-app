@@ -13,9 +13,7 @@ const Header = () => {
       </Text>
       <TouchableOpacity
        onPress={() => {
-        setCalorieCount(parseInt(value))
-        setFoodAmount(value)
-        setFoodName(value)
+         
        }}
        style={styles.addBtn}
       >
