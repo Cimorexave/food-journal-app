@@ -2,10 +2,12 @@ import React, {useState, useEffect} from 'react';
 import {View , StyleSheet, Text, Button, TextInput, TouchableOpacity} from 'react-native';
 
 
-const Header = () => {
+const Header = (arg) => {
   const [foodName, setFoodName] = useState("")
   const [foodAmount, setFoodAmount] = useState("")
   const [calorieCount, setCalorieCount] = useState("")
+
+  arg.pullData_funciton({foodName , foodAmount, calorieCount})
   return (
     <View style={styles.header}>
       <Text style={styles.text}>

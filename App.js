@@ -5,12 +5,21 @@ import { StyleSheet, Text, View } from 'react-native';
 import Header from './components/Header';
 import ResultBox from './components/ResultBox';
 
+var data_from_child = {}
+const pullData_function = (data) => {
+  data_from_child = data
+}
+
 export default function App() {
   return (
     <View style={styles.body}>
       <View style={styles.container}>
-        <Header></Header>
-        <ResultBox></ResultBox>
+        <Header
+          pullData_function = {pullData_function}
+        ></Header>
+        <ResultBox 
+          pullData_function = {pullData_function}
+        ></ResultBox>
       </View>
     </View>
   );

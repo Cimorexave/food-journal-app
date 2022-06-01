@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
-const ResultBox = () => {
+const ResultBox = (arg) => {
     let [resultText, setResultText] = useState("...........");
     let [calorieSum, setCalorieSum] = useState(0);
+
+    arg.pullData_function({calorieSum: calorieSum , resultText: resultText})
   return (
     <View style={styles.container}>
         <Text style={styles.text}>
