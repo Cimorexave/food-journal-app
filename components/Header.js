@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {View , StyleSheet, Text, Button, TextInput, TouchableOpacity} from 'react-native';
-let foodName, foodAmount, calorieCount;
 const addBtnHandler = () => {
         
 }
 
 const Header = () => {
+  const [foodName, setFoodName] = useState("")
+  const [foodAmount, setFoodAmount] = useState("")
+  const [calorieCount, setCalorieCount] = useState("")
   return (
     <View style={styles.header}>
       <Text style={styles.text}>
@@ -19,16 +21,25 @@ const Header = () => {
       </TouchableOpacity>
       <View style={styles.inputRow}>
         <TextInput 
+        onPress = {() => {
+          setFoodName(value)
+        }}
         style={styles.textInput}
         value={foodName}
         placeholder= 'food...'
         ></TextInput>
         <TextInput 
+        onPress = { () => {
+          setFoodAmount(value)
+        }}
         style={styles.textInput}
         value={foodAmount}
         placeholder= 'amount...'
         ></TextInput>
         <TextInput 
+        onPress = {() => {
+          setCalorieCount(parseInt(value))
+        }}
         style={styles.textInput}
         value={calorieCount}
         placeholder= 'calories...'
