@@ -3,12 +3,14 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import Header from './components/Header';
+import ResultBox from './components/ResultBox';
 
 export default function App() {
   return (
     <View style={styles.body}>
       <View style={styles.container}>
         <Header></Header>
+        <ResultBox></ResultBox>
       </View>
     </View>
   );
