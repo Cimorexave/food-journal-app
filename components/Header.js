@@ -4,7 +4,7 @@ import {View , StyleSheet, Text, Button, TextInput, TouchableOpacity} from 'reac
 const Header = (arg) => {
   const [foodName, setFoodName] = useState("")
   const [foodAmount, setFoodAmount] = useState("")
-  const [calorieCount, setCalorieCount] = useState("")
+  const [calorieCount, setCalorieCount] = useState("0")
   const [food, setFood] = useState({})
 
   //arg.pullData_funciton({foodName , foodAmount, calorieCount})
