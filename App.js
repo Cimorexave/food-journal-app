@@ -7,13 +7,16 @@ import ResultBox from './components/ResultBox';
 
 
 export default function App() {
-  let [resultText, setResultText] = useState("...........");
-  let [calorieSum, setCalorieSum] = useState(0);
-  let [data_from_child, setData_from_child] = useState({})
+  const [resultText, setResultText] = useState("...........")
+  const [calorieSum, setCalorieSum] = useState(0);
+  const [data_from_child, setData_from_child] = useState({})
+  const [data_store, setdata_store] = useState([])
+
 
   
   useEffect( () => {
     console.log('data from child changed')
+    setdata_store(prevData => prevData.push(data_from_child))
     console.log(data_from_child.calorieCount)
     setCalorieSum(parseInt(calorieSum) + parseInt(data_from_child.calorieCount))
     console.log(calorieSum)
