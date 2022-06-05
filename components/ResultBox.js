@@ -12,12 +12,11 @@ const ResultBox = ({resultText , calorieSum, setCalorieSum}) => {
             <Text style= {resultText == "Bad" ? styles.resultTextBad : styles.resultTextGood}> {resultText} </Text>
             so far! {"\n"}
             your calorie intake is : {"\n"}
-            <Text style= {styles.calorieSumText}> {calorieSum} </Text>
+            <Text style= {styles.calorieSumText} > {calorieSum} </Text>
         </Text>
         <TouchableOpacity
         onPress={() => {
             setCalorieSum(0)
-            
         }}
         style= {styles.clearBtn}>
             <Text style= {styles.clearBtnText}>Clear</Text>
@@ -69,8 +68,10 @@ const styles = StyleSheet.create({
     },
     calorieSumText: {
         fontSize: 50,
-        textAlign: 'center',
-        lineHeight: 80
+        lineHeight: 80,
+        textAlign: 'right',
+        position: 'absolute',
+        flexDirection: 'column',
     },
     resultTextGood: {
         color: 'green',
