@@ -3,22 +3,26 @@ import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import Header from './components/Header';
-import ResultBox from './components/ResultBox';
 import Items from './components/Items';
+import ResultBox from './components/ResultBox';
 
 
+let data = []
 export default function App() {
   const [resultText, setResultText] = useState("...........")
   const [calorieSum, setCalorieSum] = useState(0);
   const [data_from_child, setData_from_child] = useState({})
-  const [data_store, setdata_store] = useState([{}])
+  const [data_store, setdata_store] = useState([data_from_child])
 
-
-  
-  useEffect( () => {
-    console.log('data from child changed')
-    setdata_store( ...data_store, ...data_from_child)
+  useEffect(() => {
+    setdata_store([...data_store, data_from_child])
     console.log('data store is : ' ,data_store)
+
+  }, [data_from_child])
+  const pullData_function = (data) => {
+    setData_from_child({...data_from_child, ...data})
+    console.log('pulled data from child is: ' , data_from_child)
+    
     setCalorieSum(parseInt(calorieSum) + parseInt(data_from_child.calorieCount))
 
     if (parseInt(calorieSum) < 1000)
@@ -26,12 +30,6 @@ export default function App() {
       else if (parseInt(calorieSum) < 1500)
       setResultText("Good")
       else setResultText('Bad')
-      
-  }, [data_from_child])
-
-  const pullData_function = (data) => {
-    setData_from_child({...data_from_child, ...data})
-    console.log('pulled data from child is: ' , data_from_child)
   }
   
   return (
@@ -41,7 +39,7 @@ export default function App() {
           pullData_function = {pullData_function}
         ></Header>
         
-        <Items iitems = {data_store} ></Items>
+        <Items foods = {data_store}></Items>
         
         <ResultBox 
           resultText = {resultText}
