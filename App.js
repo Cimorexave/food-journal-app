@@ -40,9 +40,9 @@ export default function App() {
         <Header
           pullData_function = {pullData_function}
         ></Header>
-        <ScrollView style= {styles.scrollList}>
-          <Items iitems = {data_store} ></Items>
-        </ScrollView>
+        
+        <Items iitems = {data_store} ></Items>
+        
         <ResultBox 
           resultText = {resultText}
           calorieSum = {calorieSum}

@@ -1,10 +1,10 @@
 import React from 'react'
-import { Text, StyleSheet, View  } from 'react-native'
+import { Text, StyleSheet, View, ScrollView  } from 'react-native'
 
 const Items = ({items}) => {
     console.log(items)
   return (
-    <View>
+    <ScrollView>
         {items.map( item => {
             return (
                 <View>
@@ -14,8 +14,12 @@ const Items = ({items}) => {
                 </View>
             )
         } )}
-    </View>
+    </ScrollView>
   )
 }
 
 export default Items
+
+const styles = StyleSheet.create({
+
+})
